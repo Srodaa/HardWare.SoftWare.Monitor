@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Management;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace HardWare.SoftWare.Monitor
 {
@@ -23,10 +24,15 @@ namespace HardWare.SoftWare.Monitor
     public partial class MainWindow : Window
     {
         List<Szoftverek> szoftv = new List<Szoftverek>();
+        //PerformanceCounter CPUMonitor = new PerformanceCounter("Processor Information", "% Processor Time", "_Total");
         public MainWindow()
         {
             InitializeComponent();
             Szoftverek();
+            CPU();
+            GPU();
+            Motherboard();
+            //RAM();
         }
 
         public void Szoftverek()
@@ -52,6 +58,51 @@ namespace HardWare.SoftWare.Monitor
                 }
             }
             szoftverdatagrid.ItemsSource = szoftv;
+
+        }
+
+        public void CPU()
+        {
+            ManagementObjectSearcher CPU = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM  Win32_Processor");
+            foreach (var x in CPU.Get())
+            {
+                cpunev.Content = x["Name"];
+                cpumagok.Content = x["NumberOfCores"];
+                cpuszalak.Content = x["ThreadCount"];
+                cpuorajel.Content = x["MaxClockSpeed"];
+            }
+
+        }
+
+        public void GPU()
+        {
+            ManagementObjectSearcher GPU = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM  Win32_VideoController");
+            foreach (var x in GPU.Get())
+            {
+                gpunev.Content = x["Name"];
+                gpudriver.Content = x["DriverVersion"];
+
+            }
+
+
+        }
+
+        public void Motherboard()
+        {
+            ManagementObjectSearcher Motherboard = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM  Win32_Baseboard");
+            foreach (var x in Motherboard.Get())
+            {
+                mbmodell.Content = x["Model"];
+                mbgyarto.Content = x["Manufacturer"];
+                mbnev.Content = x["Product"];
+                mbszam.Content = x["SerialNumber"];
+
+            }
+        }
+
+        public void RAM()
+        {
+            //ManagementObjectSearcher RAM = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM  Win32_");
 
         }
 

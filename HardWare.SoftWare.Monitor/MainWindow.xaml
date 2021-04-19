@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="580.685" Width="1317.808" ResizeMode="CanMinimize">
     <TabControl>
-        <TabItem Header="Szoftverek">
+        <TabItem Header="Szoftverek" Width="100" Height="30" FontSize="14">
             <Grid>
                 <DataGrid x:Name="szoftverdatagrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="502" Margin="10,10,0,0" VerticalAlignment="Top" Width="1284" SelectionChanged="szoftverdatagrid_SelectionChanged">
                     <DataGrid.Resources>
@@ -25,6 +25,48 @@
                         <DataGridTextColumn Header="Telepítés helye" Binding="{Binding Telepiteshelye, Mode=OneWay}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Érzékelők" Width="100" Height="30" VerticalAlignment="Top" FontSize="14">
+            <Grid>
+                <Label x:Name="Sensor1" Content="Rájöttem, hogy fogalmam sincs hogy kell ezt megcsinálni" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="514" Height="41" FontSize="20"/>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Hardverek" Width="100" Height="30" VerticalAlignment="Top" FontSize="14">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="label1" Content="Processzor adatai:" HorizontalAlignment="Left" Margin="26,26,0,0" VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="16"/>
+                <Label Content="Neve:" HorizontalAlignment="Left" Margin="68,62,0,0" VerticalAlignment="Top" Width="106"/>
+                <Label Content="Magok száma:" HorizontalAlignment="Left" Margin="68,91,0,0" VerticalAlignment="Top" Width="106"/>
+                <Label Content="Szálak száma:" HorizontalAlignment="Left" Margin="68,120,0,0" VerticalAlignment="Top" Width="106"/>
+                <Label Content="Órajel:" HorizontalAlignment="Left" Margin="68,149,0,0" VerticalAlignment="Top" Width="106"/>
+                <Label x:Name="cpunev" Content="" HorizontalAlignment="Left" Margin="213,62,0,0" VerticalAlignment="Top" Width="200"/>
+                <Label x:Name="cpumagok" Content="" HorizontalAlignment="Left" Margin="213,91,0,0" VerticalAlignment="Top" Width="200"/>
+                <Label x:Name="cpuszalak" Content="" HorizontalAlignment="Left" Margin="213,120,0,0" VerticalAlignment="Top" Width="200"/>
+                <Label x:Name="cpuorajel" Content="" HorizontalAlignment="Left" Margin="213,149,0,0" VerticalAlignment="Top" Width="200"/>
+                <Label x:Name="label1_Copy" Content="Videókártya adatai:" HorizontalAlignment="Left" Margin="12,280,0,0" VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="16"/>
+                <Label Content="Neve:" HorizontalAlignment="Left" Margin="50,345,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1"/>
+                <Label Content="Driver verziója:" HorizontalAlignment="Left" Margin="56,345,0,0" VerticalAlignment="Top" Width="118"/>
+                <Label x:Name="gpunev" Content="" HorizontalAlignment="Left" Margin="213,316,0,0" VerticalAlignment="Top" Width="200"/>
+                <Label x:Name="gpudriver" Content="" HorizontalAlignment="Left" Margin="213,345,0,0" VerticalAlignment="Top" Width="200"/>
+                <Label x:Name="label1_Copy1" Content="Alaplap adatai:" HorizontalAlignment="Left" Margin="26,26,0,0" VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="16" Grid.Column="1"/>
+                <Label Content="Modell:" HorizontalAlignment="Left" Margin="62,62,0,0" VerticalAlignment="Top" Width="106" Grid.Column="1"/>
+                <Label x:Name="mbmodell" Content="" HorizontalAlignment="Left" Margin="226,62,0,0" VerticalAlignment="Top" Width="200" Grid.Column="1"/>
+                <Label Content="Gyártó:" HorizontalAlignment="Left" Margin="62,91,0,0" VerticalAlignment="Top" Width="106" Grid.Column="1"/>
+                <Label Content="Neve:" HorizontalAlignment="Left" Margin="62,120,0,0" VerticalAlignment="Top" Width="106" Grid.Column="1"/>
+                <Label Content="Sorozatszáma:" HorizontalAlignment="Left" Margin="62,149,0,0" VerticalAlignment="Top" Width="106" Grid.Column="1"/>
+                <Label x:Name="mbgyarto" Content="" HorizontalAlignment="Left" Margin="226,91,0,0" VerticalAlignment="Top" Width="200" Grid.Column="1"/>
+                <Label x:Name="mbnev" Content="" HorizontalAlignment="Left" Margin="226,120,0,0" VerticalAlignment="Top" Width="200" Grid.Column="1"/>
+                <Label x:Name="mbszam" Content="" HorizontalAlignment="Left" Margin="226,149,0,0" VerticalAlignment="Top" Width="200" Grid.Column="1"/>
+                <Label x:Name="label1_Copy2" Content="RAM adatai:" HorizontalAlignment="Left" Margin="26,289,0,0" VerticalAlignment="Top" Width="162" FontWeight="Bold" FontSize="16" Grid.Column="1"/>
+                <Label x:Name="ramnev" Content="" HorizontalAlignment="Left" Margin="226,345,0,0" VerticalAlignment="Top" Width="200" Grid.Column="1"/>
             </Grid>
         </TabItem>
     </TabControl>
